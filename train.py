@@ -20,11 +20,11 @@ import argparse
 import time
 import json
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 import numpy as np
-from rede_neural.models import TextGenerator, TransformerTextGenerator, GPTDecoder
-from rede_neural.utils.data import TextDataset
+from models import TextGenerator, TransformerTextGenerator, GPTDecoder
+from utils.data import TextDataset
 
 
 DEMO_TEXT = """\

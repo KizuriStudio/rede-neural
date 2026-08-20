@@ -30,6 +30,7 @@ Thumbs.db
 
 # Termux specific
 storage/
+snaptube/
 
 # Kizuri Engine (outro projeto)
 KizuriEngineOficial/

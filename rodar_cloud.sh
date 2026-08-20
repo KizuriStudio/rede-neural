@@ -6,10 +6,9 @@
 
 set -e
 
-# Detecta o diretorio do projeto de forma robusta
+# Detecta o diretorio do projeto
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
-cd "$PROJECT_DIR"
+cd "$SCRIPT_DIR"
 
 echo ""
 echo "╔═══════════════════════════════════════════════════╗"
@@ -18,9 +17,9 @@ echo "║  Modelo grande com todos os livros               ║"
 echo "╚═══════════════════════════════════════════════════╝"
 echo ""
 
-python3 rede_neural/train.py \
+python3 train.py \
     --model gpt \
-    --file rede_neural/livros \
+    --file livros \
     --embed 128 \
     --hidden 256 \
     --layers 4 \
@@ -33,8 +32,8 @@ python3 rede_neural/train.py \
     --max-chars 0 \
     --temperature 0.8 \
     --top-p 0.9 \
-    --save rede_neural/modelo_cloud.npz
+    --save modelo_cloud.npz
 
 echo ""
 echo "Treino concluido!"
-ls -lh rede_neural/modelo_cloud.npz rede_neural/modelo_cloud.npz.meta.json 2>/dev/null
+ls -lh modelo_cloud.npz modelo_cloud.npz.meta.json 2>/dev/null

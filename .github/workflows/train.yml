@@ -39,31 +39,32 @@ jobs:
           pip install numpy
 
       - name: Train model
-        run: python rede_neural/train.py \
-          --model gpt \
-          --file rede_neural/livros \
-          --embed ${{ inputs.embed || '128' }} \
-          --hidden 256 \
-          --layers ${{ inputs.layers || '4' }} \
-          --heads 8 \
-          --batch 32 \
-          --seq-len 128 \
-          --epochs ${{ inputs.epochs || '2000' }} \
-          --lr 0.0003 \
-          --dropout 0.1 \
-          --max-chars 0 \
-          --temperature 0.8 \
-          --top-p 0.9 \
-          --top-k 40 \
-          --save rede_neural/modelo_cloud.npz
+        run: |
+          python train.py \
+            --model gpt \
+            --file livros \
+            --embed ${{ inputs.embed || '128' }} \
+            --hidden 256 \
+            --layers ${{ inputs.layers || '4' }} \
+            --heads 8 \
+            --batch 32 \
+            --seq-len 128 \
+            --epochs ${{ inputs.epochs || '2000' }} \
+            --lr 0.0003 \
+            --dropout 0.1 \
+            --max-chars 0 \
+            --temperature 0.8 \
+            --top-p 0.9 \
+            --top-k 40 \
+            --save modelo_cloud.npz
 
       - name: Upload model artifact
         uses: actions/upload-artifact@v4
         with:
           name: modelo-gpt-treinado
           path: |
-            rede_neural/modelo_cloud.npz
-            rede_neural/modelo_cloud.npz.meta.json
+            modelo_cloud.npz
+            modelo_cloud.npz.meta.json
           retention-days: 90
 
       - name: Create Release
@@ -83,19 +84,19 @@ jobs:
             ### Como usar
             ```bash
             pip install numpy
-            python rede_neural/train.py --load rede_neural/modelo_cloud.npz -i
+            python train.py --load modelo_cloud.npz -i
             ```
 
             ### Exemplo de código
             ```python
-            from rede_neural.train import load_model
+            from train import load_model
             model, dataset = load_model("modelo_cloud.npz")
             text = model.generate(dataset, "O", length=500)
             print(text)
             ```
           files: |
-            rede_neural/modelo_cloud.npz
-            rede_neural/modelo_cloud.npz.meta.json
+            modelo_cloud.npz
+            modelo_cloud.npz.meta.json
           draft: false
           prerelease: false
         env:

@@ -1,14 +1,15 @@
 #!/bin/bash
 # ============================================
-# TREINO ULTRA RAPIDO — ~5 min / 1000 epochs
+# TREINO ULTRA RAPIDO — ~5 min / 2000 epochs
 # Otimizado pra Termux (pouca RAM)
 # ============================================
 
-cd /storage/emulated/0/Download
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
 
-python3 rede_neural/train.py \
+python3 train.py \
     --model gpt \
-    --file rede_neural/livros \
+    --file livros \
     --embed 16 \
     --hidden 32 \
     --layers 1 \
@@ -21,4 +22,4 @@ python3 rede_neural/train.py \
     --max-chars 200000 \
     --temperature 0.8 \
     --top-p 0.9 \
-    --save rede_neural/modelo_rapido.npz
+    --save modelo_rapido.npz
