@@ -1,5 +1,5 @@
 import numpy as np
-from ..layers.dense import Layer
+from layers.dense import Layer
 from .rope import RoPE
 
 

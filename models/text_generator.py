@@ -1,11 +1,11 @@
 import numpy as np
-from ..layers import Embedding, LSTM, BiLSTM, Dense, Dropout, LayerNorm, Sequential, SelfAttention
-from ..activations import ReLU, GELU, Softmax, Tanh
-from ..losses import CrossEntropyLoss
-from ..optimizers import AdamW
-from ..utils.data import TextDataset, DataLoader
-from ..utils.text import generate_text, generate_interactive
-from ..utils.training import Trainer
+from layers import Embedding, LSTM, BiLSTM, Dense, Dropout, LayerNorm, Sequential, SelfAttention
+from activations import ReLU, GELU, Softmax, Tanh
+from losses import CrossEntropyLoss
+from optimizers import AdamW
+from utils.data import TextDataset, DataLoader
+from utils.text import generate_text, generate_interactive
+from utils.training import Trainer
 
 
 class BaseLM:

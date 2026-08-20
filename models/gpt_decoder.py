@@ -1,13 +1,13 @@
 import numpy as np
-from ..layers import Embedding, Dense, Dropout, LayerNorm
-from ..layers.rmsnorm import RMSNorm
-from ..layers.swiglu import SwiGLU
-from ..layers.causal_attention import CausalSelfAttention
-from ..losses import CrossEntropyLoss
-from ..optimizers import AdamW
-from ..utils.data import TextDataset, DataLoader
-from ..utils.sampling import generate_advanced, generate_stream
-from ..utils.training import Trainer
+from layers import Embedding, Dense, Dropout, LayerNorm
+from layers.rmsnorm import RMSNorm
+from layers.swiglu import SwiGLU
+from layers.causal_attention import CausalSelfAttention
+from losses import CrossEntropyLoss
+from optimizers import AdamW
+from utils.data import TextDataset, DataLoader
+from utils.sampling import generate_advanced, generate_stream
+from utils.training import Trainer
 
 
 class GPTBlock:
