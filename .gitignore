@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Modelos treinados (grandes)
+*.npz
+*.npz.meta.json
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Termux specific
+storage/
+
+# Kizuri Engine (outro projeto)
+KizuriEngineOficial/
+KizuriGame-*/
+*.zip
